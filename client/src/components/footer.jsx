@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+
+
 
 export default function Footer() {
 	return (
 		<>
-			<div className="footer-section">
+		
+			<div className="footer-section  ">
 
 				<div className="first border-t-2 border-gray-300 dark:border-gray-700 pb-8 pt-6 px-2 md:px-8 lg:px-24 xl:px-48 flex flex-col md:flex-row justify-between items-start md:items-center align-top gap-6">
 					<div className="name">
@@ -15,11 +19,11 @@ export default function Footer() {
 					<div className="quick">
 						<h2 className="text-xl font-bold text-gray-500">Quick Links</h2>
 						<ul className="flex flex-col gap-2  mt-2 text-gray-600 dark:text-white">
-							<li><Link to="/">Home</Link></li>
-							<li><Link to="/about">About</Link></li>
-							<div className="font-normal text-sm">
-								<Link to="/contact">Contact</Link>
-							</div>
+							<li><a href ="/" className="font-normal text-sm">Home</a></li>
+							<li><a href="/about" className="font-normal text-sm">About</a></li>
+							<li><Link to="/faq" className="font-normal text-sm">FAQ</Link></li>
+							<li><a href="/service" className="font-normal text-sm">Terms of Service</a></li>
+							
 						</ul>
 					</div>
 					<div className="connect">

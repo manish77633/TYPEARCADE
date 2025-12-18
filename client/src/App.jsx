@@ -6,8 +6,10 @@ import Spotlight from './components/Spotlight';
 import Home from './components/home';
 import Footer from './components/footer';
 import './App.css';
-import AboutSection from './pages/Aboutus';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from './pages/Aboutus';
+import FAQ from './pages/FAQ';
+import Service from './pages/Service';
+import { Routes, Route } from 'react-router-dom';
 
 // Function: Local Storage se initial theme uthana
 const getInitialTheme = () => {
@@ -28,7 +30,7 @@ function App() {
     useEffect(() => {
         const root = window.document.documentElement;
         const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         // Light Mode ke liye 'dark' class remove karo
         root.classList.remove('dark');
 
@@ -36,39 +38,34 @@ function App() {
         if (currentTheme === 'dark' || (currentTheme === 'system' && isSystemDark)) {
             root.classList.add('dark');
         }
-        
+
         window.localStorage.setItem('theme', currentTheme);
 
     }, [currentTheme]);
 
+
+
     return (
-          <Router>
-       
-           
-            <Navbar 
-                    currentTheme={currentTheme}
-                    setCurrentTheme={setCurrentTheme} 
-            />
+        <>
+
+            {/* 1. Navbar ko setter aur getter dono pass kiye */}
+            <Navbar currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
 
             <Routes>
-                
-                 <Route 
-                    path="/" 
-                    element={
-                        <>
-                             <Spotlight currentTheme={currentTheme} />
-                            <Home currentTheme={currentTheme} />
-                           
-                        </>
-                    } 
-                />
-               
-                <Route path="/about" element={<AboutSection currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />} />
+                {/* Home Page Layout */}
+                <Route path="/" element={
+                    <>
+                        <Spotlight currentTheme={currentTheme} />
+                        <Home currentTheme={currentTheme} />
+                    </>
+                } />
 
+                {/* FAQ Page */}
+                 <Route path="/about" element={<About />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/service" element={<Service />} />
+            </Routes>
 
-                </Routes>
-
-          
             <Footer />
         
      </Router>  
