@@ -6,6 +6,7 @@ import Spotlight from './components/Spotlight';
 import Home from './components/home';
 import Footer from './components/footer';
 import './App.css';
+import About from './pages/Aboutus';
 import FAQ from './pages/FAQ';
 import Service from './pages/Service';
 import { Routes, Route } from 'react-router-dom';
@@ -60,13 +61,14 @@ function App() {
                 } />
 
                 {/* FAQ Page */}
-                {/* <Route path="/about" element={<About />} /> */}
+                 <Route path="/about" element={<About />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/service" element={<Service />} />
             </Routes>
 
             <Footer />
-        </>
+        
+     </Router>  
     );
 }
 
