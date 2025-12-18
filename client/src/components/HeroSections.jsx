@@ -6,7 +6,7 @@ export default function HeroSections() {
     return (
         <>
             <div className="relative w-full min-h-screen overflow-auto bg-white dark:bg-black transition-colors duration-300">
-                {/* Spotlight: HTML tag par 'dark' class hone par hi visible hoga */}
+                
                 <div className="pointer-events-none absolute -top-40 -left-40 w-[400px] h-[10px] rounded-full opacity-10 blur-4xl 
                                 bg-gradient-to-br  dark:block hidden animate-spotlight">
                 </div>

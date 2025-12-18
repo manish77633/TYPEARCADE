@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'; 
 // Hum MoonIcon ke saath Sun Icon bhi use kar lete hain
 import { IoMdMoon, IoMdSunny } from 'react-icons/io'; 
+import { Link } from 'react-router-dom';
 
 // Props receive kiye
 export default function Navbar({ currentTheme, setCurrentTheme }) { 
@@ -27,7 +28,7 @@ export default function Navbar({ currentTheme, setCurrentTheme }) {
     return (
         <nav className="navbar bg-white dark:bg-black p-4 text-gray-900 dark:text-white flex justify-between items-center h-[80px] transition-colors duration-300 relative z-10 border-b border-gray-200 dark:border-gray-700">
             
-            <h2 className="text-2xl font-bold text-yellow-500 dark:text-yellow-400">TypeArcade</h2>
+            <Link to={'/'} className="text-2xl font-bold text-yellow-500 dark:text-yellow-400">TypeArcade</Link>
             
             <ul className="nav-links flex space-x-4 items-center">
                 <li><a href="/Singleplayer">Play Now</a></li>
