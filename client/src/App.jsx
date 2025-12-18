@@ -6,6 +6,8 @@ import Spotlight from './components/Spotlight';
 import Home from './components/home';
 import Footer from './components/footer';
 import './App.css';
+import AboutSection from './pages/Aboutus';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Function: Local Storage se initial theme uthana
 const getInitialTheme = () => {
@@ -40,20 +42,36 @@ function App() {
     }, [currentTheme]);
 
     return (
-        <>
-            {/* 1. Navbar ko setter aur getter dono pass kiye */}
+          <Router>
+       
+           
             <Navbar 
-                currentTheme={currentTheme}
-                setCurrentTheme={setCurrentTheme} 
+                    currentTheme={currentTheme}
+                    setCurrentTheme={setCurrentTheme} 
             />
 
-            {/* 2. Home aur Spotlight ko sirf currentTheme pass kiya (agar zaroorat ho to) */}
-            {/* Note: Tailwind ki dark: classes khud hi HTML tag se kaam karengi,
-               lekin prop pass karna safe practice hai. */}
-            <Spotlight currentTheme={currentTheme} />
-            <Home currentTheme={currentTheme} />
+            <Routes>
+                
+                 <Route 
+                    path="/" 
+                    element={
+                        <>
+                             <Spotlight currentTheme={currentTheme} />
+                            <Home currentTheme={currentTheme} />
+                           
+                        </>
+                    } 
+                />
+               
+                <Route path="/about" element={<AboutSection currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />} />
+
+
+                </Routes>
+
+          
             <Footer />
-        </>
+        
+     </Router>  
     );
 }
 
